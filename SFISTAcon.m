@@ -1,29 +1,7 @@
 function [s,p,niter]=SFISTAcon(b,A,W,lambda,r,opts)
 %  Created on Feb 1st, 2013
 %  Author: Zhao Tan
-%  1. This code implemented the analysis compressive senings using FISTA.
-%  2. The convergence is depended on the rho and accuracy requirement.
-%  3. The idea on continuation is used here to speedup the algorithm.
-%  4. It has the accuracy as normal CVX method with no regularization and
-%  also the same computing speed when problem dimension is small. r the
-%  ratio to change the acc and rho for every iteration.
-%  5. More optimization can be implemented.
-% Inputs:
-% -b  the measurement
-% -M  the measuring operator or matrix
-% -Mt adjoint operator of M
-% -D  the sensing operator or matrix
-% -Dt the ajoint operator of D
-% -lambda tradeoff between l2 and l1 norm
-% -opts the options for this algorithm
-% -opts.C number of continuation
-% -opts.r changing rate of continuation
-% -opts.acc the accuracy we want to obtain
-% -opts.rhof the final value of rho
-% -opts.maxiter the maximum iteration number
-% Outputs:
-% -s the reconstructed signal
-% -niter number of iteratios used to achieve the desired accuracy
+%  This code implement the continuation strategy for SFISTA
 
 optsin.print=opts.print;
 
